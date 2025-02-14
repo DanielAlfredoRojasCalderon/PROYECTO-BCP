@@ -29,7 +29,7 @@ function deposito(e){
                         <form class="d-flex flex-col  h-75 pt-1">
                             
                             <h2 class="mb-4">Ingresa el monto</h2>
-                            <input type="number"  id="idInputSaldo" class=" rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Saldo"/>
+                            <input type="number"  id="idInputSaldo" required class=" rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Saldo"  />
 
                             <button type="submit"  id="btnMonto" class="btn btn-outline-light mt-4">Depositar</button>
 
@@ -106,7 +106,10 @@ function Depositar() {
         addTexto.appendChild(textAnswer)
     }
     
-    iptSaldo.value = ""
+    setTimeout(() => {
+        iptSaldo.value = ""
+    }, 500);
+    
 
 
 }

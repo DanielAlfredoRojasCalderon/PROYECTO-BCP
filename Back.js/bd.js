@@ -108,9 +108,10 @@ function validarFrom(e){
     
     activarButton();
     consultaButton();
-
+    const botonRetirar = document.querySelector("#id_Retiro_button");    
+    botonRetirar.addEventListener('click',retiroDinero)
     
-    retiroDinero();
+    
 
     }
     else{

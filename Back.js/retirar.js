@@ -1,8 +1,5 @@
-function retiroDinero() {
-    
-    const botonRetirar = document.querySelector("#id_Retiro_button");
-    botonRetirar.addEventListener('click',retiro)
-
+function retiroDinero(e) {
+    retiro()
     const button20 = document.querySelector("#id_button_20");
     const button50 = document.querySelector("#id_button_50");
     const button100 = document.querySelector("#id_button_100");
@@ -13,7 +10,7 @@ function retiroDinero() {
     button150.addEventListener('click', seleccionMonto)
 }
 
-function retiro(e){
+function retiro(){
     borrar = cuerpo.children[0];
     cuerpo.removeChild(borrar);
     cuerpo.innerHTML = "";
@@ -86,7 +83,7 @@ function retiro(e){
 
 
 
-function RetirarDinero() {
+function RetirarDinero(e) {
     const iptRetirar = document.querySelector("#idImput_text");
     const addTextoRetiro = document.querySelector("#idAddTexto")
     cuentas[validador()].saldo -=parseFloat(iptRetirar.value)
@@ -128,12 +125,14 @@ function RetirarDinero() {
 
 function seleccionMonto(e){
 
-    // const iptRetirar = document.querySelector("#idImput_text");
-    // iptRetirar.value = "";
+    const iptRetirar = document.querySelector("#idImput_text");
+    iptRetirar.value = "";
     
-    // iptRetirar.value = e.target.value;
+    iptRetirar.value = e.target.value;
+    const btnRetiroSaldo = document.querySelector("#idRetiroButton");
+    btnRetiroSaldo.addEventListener('click', RetirarDinero)
     
-    RetirarDinero()
+    
 
 
 
