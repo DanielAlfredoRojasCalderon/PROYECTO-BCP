@@ -9,7 +9,7 @@ let cuentas = [
         "nombre": "Gera",
         "saldo": 150,
         "password": "5678",
-        "dni": 44788834 
+        "dni": 10247439 
     },
     {
         "nombre": "Sabi",
