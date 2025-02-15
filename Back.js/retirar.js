@@ -36,7 +36,7 @@ function retiro(){
                         <form class="d-flex flex-col  h-75 pt-1">
                             
                             <h2 class="mb-4">Ingresa el monto</h2>
-                            <input type="number" id="idImput_text" class=" rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Saldo"/>
+                            <input type="number" id="idImput_text" class=" rounded-lg border-transparent appearance-none border border-gray-300 w-full py-2 px-4 bg-white text-gray-700 placeholder-gray-400 shadow-sm text-base focus:outline-none focus:ring-2 focus:ring-purple-600 focus:border-transparent" placeholder="Ingresa la cantidad" required />
 
                             <button type="submit"  class="btn btn-outline-light mt-4" id="idRetiroButton">Retirar</button>
 
@@ -76,10 +76,27 @@ function retiro(){
     idRegresar.addEventListener('click',validarFrom);
     const btnRetiroSaldo = document.querySelector("#idRetiroButton");
     
-    btnRetiroSaldo.addEventListener('click', RetirarDinero )
+    btnRetiroSaldo.addEventListener('click',ejecutar)
     
+
+    
+
+    
+    
+
 }
 
+function ejecutar(e){
+    const iptRetirar = document.querySelector("#idImput_text");
+    try {
+
+        if (iptRetirar.value != "")  {
+             RetirarDinero()
+        } 
+    } catch (error) {
+        console.log("Fallo")
+    }
+}
 
 
 
@@ -112,30 +129,30 @@ function RetirarDinero(e) {
         text_retiro.setAttribute("id","IddivAgredos")
         text_retiro.innerHTML = `
             <h3>Retiro exitoso</h3> 
-                    <p>El monto retirado fue de lolo S/${iptRetirar.value}</p>
+                    <p>El monto retirado fue de S/${iptRetirar.value}</p>
                     <p>Tu nuevo saldo es de S/${cuentas[validador()].saldo}</p>
         `
         addTextoRetiro.appendChild(text_retiro)
     }
     
-    iptRetirar.value = ""
+    setTimeout(() => {
+        iptRetirar.value = ""
+    }, 500);
+    
 
 
 }
 
 function seleccionMonto(e){
-
+    
     const iptRetirar = document.querySelector("#idImput_text");
     iptRetirar.value = "";
     
     iptRetirar.value = e.target.value;
     const btnRetiroSaldo = document.querySelector("#idRetiroButton");
-    btnRetiroSaldo.addEventListener('click', RetirarDinero)
-    
-    
-
-
+    btnRetiroSaldo.addEventListener('click', ejecutar)
 
 }
+
 
 

@@ -61,14 +61,26 @@ function deposito(e){
     btnAtras.addEventListener('click',validarFrom);
     const btnsaldo = document.querySelector("#btnMonto");
     
-    btnsaldo.addEventListener('click', Depositar )
+    btnsaldo.addEventListener('click', ejecutarDeposito )
     
+}
+
+function ejecutarDeposito(e){
+    const iptSaldo = document.querySelector("#idInputSaldo");
+    try {
+
+        if (iptSaldo.value != "")  {
+             Depositar()
+        } 
+    } catch (error) {
+        console.log("Fallo")
+    }
 }
 
 
 
 
-function Depositar() {
+function Depositar(e) {
     const iptSaldo = document.querySelector("#idInputSaldo");
     const addTexto = document.querySelector("#idTextodeposito")
     cuentas[validador()].saldo += parseFloat(iptSaldo.value)
